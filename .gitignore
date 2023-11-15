@@ -27,3 +27,7 @@ Temporary Items
 .apdisk
 
 .ipynb_checkpoints
+*.H
+*.HH
+*.H.?
+*.HH.?
