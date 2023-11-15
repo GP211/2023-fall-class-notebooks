@@ -66,7 +66,6 @@ class Linear2D(Operator):
     self._f2=(y-axes[1].o)/axes[1].d
     self._ipos2=np.int_(self._f2)
     self._ipos1=np.int_(self._f1)
-    print("range i see ",self._ipos1.min(),self._ipos1.max(),self._ipos2.min(),self._ipos2.max())
     self._f1-=self._ipos1
     self._f2-=self._ipos2
     self._e1=1.-self._f1

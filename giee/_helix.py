@@ -328,7 +328,6 @@ class Polydiv(Operator):
         d=np.ravel(data.get_nd_array())
         polydivFor(m,d,\
                    self._filt.lags,self._filt.get_nd_array(),self._t)
-        print(self._t.min(),self._t.max(),"MIN MAX")
         data.scale_add(self._tt)
         
         
