@@ -22,7 +22,6 @@ class BoxFilter(FloatVector):
         
         if vals is not None:
             if vals.shape != tuple(sh):
-                print(vals.shape,sh)
                 raise Exception("vals not the same shape")
         sh_fortran=list(sh)
         sh_fortran.reverse()
@@ -41,7 +40,6 @@ class BoxFilter(FloatVector):
         one_use=list(one_loc)
         sh_use.reverse()
         one_use.reverse()
-        print(sh_use,one_use)
         for filt_s, one_s in zip(sh_use,one_use):
             if one_s < 0 or one_s >= filt_s:
                 raise Exception("Illegal locaiton for one in the filter")
@@ -55,7 +53,6 @@ class BoxFilter(FloatVector):
         v[:one_1d]=0
         m[:one_1d+1]=0
         v[one_1d]=1
-        print("sending",sh,msk.shape,vals.shape)
         return BoxFilter(sh,msk,one_loc,vals=vals)
 
 
@@ -66,7 +63,6 @@ class BoxFilter(FloatVector):
         return x
     
     def cloneSpace(self):
-        print(self.get_nd_array().shape,self.mask.shape,"INCLONE SPACE")
         x=BoxFilter(self.get_nd_array().shape,self.mask,self.zeroL,space_only=True)
         return x
 
@@ -82,7 +78,6 @@ class BoxFilter(FloatVector):
         op=convOpAdjData(model,data,flt)
         op.forward(False,model,data)
         
-        print(data.get_nd_array().max(),model.get_nd_array().max())
         val=np.sum(flt.get_nd_array())
         ar=np.where(data.get_nd_array()==val,1,0)
         msk=data.clone()
