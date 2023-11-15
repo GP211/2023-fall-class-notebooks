@@ -1,0 +1,22 @@
+[project]
+
+name='giee_fall_2023'
+version='0.0.1'
+description='A library for class'
+
+authors=[
+    {name="Bob Clapp", email="bob@sep.stanford.edu"}
+]
+
+maintainers=[
+    {name="Bob Clapp", email="bob@sep.stanford.edu"}
+]
+dependencies=[
+      'sep_lot @ git+https://github.com/SEP-software/sep-plot.git@6331a1e36d8e3cdb4cfbc3539f31bdad1eb465a7'
+            ]
+
+
+[build-system]
+build-backend = "flit_core.buildapi"
+requires = ["flit_core >=3.2,<4"]
+
